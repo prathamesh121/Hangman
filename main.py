@@ -6,17 +6,26 @@ chosen_word = random.choice(word_list)
 
 display = []
 word_len = len(chosen_word)
-
+# //create a blank
 for _ in range(word_len):
     display += "_"
 
 print(display)
 
-guess = input("Guess a letter \n").lower()
+end = False
 
-for position in range(word_len):
-    letter = chosen_word[position]
-    if letter == guess:
-        display[position] = letter
+while not end:
+    guess = input("Guess a letter \n").lower()
 
-print(display)
+    for position in range(word_len):
+        letter = chosen_word[position]
+        if letter == guess:
+            display[position] = letter
+
+    print(display)
+
+    if "_" not in display:
+
+        end = True
+        print("You win")
+      
