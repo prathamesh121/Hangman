@@ -3,7 +3,7 @@ import random
 word_list = ["anushka", "payal", "amina", "ruchita"]
 chosen_word = random.choice(word_list)
 # print(f'psst,')
-
+lives = 6
 display = []
 word_len = len(chosen_word)
 # //create a blank
@@ -22,10 +22,17 @@ while not end:
         if letter == guess:
             display[position] = letter
 
-    print(display)
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            end = True
+            print("you Lose")
+
+    print(f"{' ' .join(display)}")
 
     if "_" not in display:
 
         end = True
         print("You win")
-      
+
+  #  print(stages[lives])   
